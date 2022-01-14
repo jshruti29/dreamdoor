@@ -1,3 +1,4 @@
+import 'package:alecado/Customer/UI/chat_page.dart';
 import 'package:flutter/material.dart';
 
 import 'Vendor/LandingPagesVendor/one_vendor_landing_page.dart';
@@ -13,7 +14,7 @@ class MyAppu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: One_Vendor_LandingPage(),
+      home: Chat_Page(),
     );
   }
 }
