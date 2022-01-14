@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:alecado/Customer/UI/payment.dart';
 
-import 'payment.dart';
+import 'package:flutter/material.dart';
 
 class EditPayments extends StatefulWidget {
   const EditPayments({Key? key}) : super(key: key);
