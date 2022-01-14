@@ -1,3 +1,5 @@
+import 'package:alecado/Customer/UI/Finish_order.dart';
+import 'package:alecado/Customer/UI/Ringing.dart';
 import 'package:alecado/Customer/UI/chat_page.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +16,7 @@ class MyAppu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Chat_Page(),
+      home: order(),
     );
   }
 }
