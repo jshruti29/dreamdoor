@@ -1,5 +1,6 @@
-import 'package:featured/payment.dart';
 import 'package:flutter/material.dart';
+
+import 'payment.dart';
 
 class EditPayments extends StatefulWidget {
   const EditPayments({Key? key}) : super(key: key);
