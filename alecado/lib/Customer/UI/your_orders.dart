@@ -43,7 +43,7 @@ class _YourOrdersState extends State<YourOrders> {
                       Padding(
                         padding:
                             EdgeInsets.only(left: 8.0, top: 5.0, right: 8.0),
-                        child: Image.asset("icon/img_5.png"),
+                        child: Image.asset("assets/icon/bell.png"),
                       ),
                     ]),
                   ),
@@ -97,7 +97,7 @@ class _YourOrdersState extends State<YourOrders> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Image.asset(
-                      "icon/img_6.png",
+                      "assets/icon/filter.png",
                     ),
                   ),
                 ),
@@ -125,7 +125,7 @@ class _YourOrdersState extends State<YourOrders> {
                       //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Image.asset(
-                          "images/img_3.png",
+                          "assets/images/img2.png",
                           height: 60,
                           width: 60,
                         ),
@@ -210,7 +210,7 @@ class _YourOrdersState extends State<YourOrders> {
                       //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Image.asset(
-                          "images/img_4.png",
+                          "assets/images/img1.png",
                           height: 60,
                           width: 60,
                         ),
@@ -295,7 +295,7 @@ class _YourOrdersState extends State<YourOrders> {
                       //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Image.asset(
-                          "images/img_5.png",
+                          "assets/images/img3.png",
                           height: 60,
                           width: 60,
                         ),
