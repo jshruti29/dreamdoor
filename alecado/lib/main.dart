@@ -2,6 +2,7 @@ import 'package:alecado/Customer/UI/Finish_order.dart';
 import 'package:alecado/Customer/UI/Ringing.dart';
 import 'package:alecado/Customer/UI/chat_page.dart';
 import 'package:alecado/Customer/UI/notification.dart';
+import 'package:alecado/Customer/UI/your_orders.dart';
 import 'package:flutter/material.dart';
 
 import 'Vendor/LandingPagesVendor/one_vendor_landing_page.dart';
@@ -17,7 +18,7 @@ class MyAppu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: notification(),
+      home: YourOrders(),
     );
   }
 }
