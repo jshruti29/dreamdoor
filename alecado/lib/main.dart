@@ -4,6 +4,7 @@ import 'package:alecado/Customer/UI/chat_page.dart';
 import 'package:alecado/Customer/UI/notification.dart';
 import 'package:alecado/Customer/UI/your_orders.dart';
 import 'package:flutter/material.dart';
+import 'Customer/UI/product.dart';
 import 'Customer/UI/voucher_promo.dart';
 import 'Vendor/LandingPagesVendor/one_vendor_landing_page.dart';
 
@@ -18,7 +19,7 @@ class MyAppu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: VoucherPromo(),
+      home: Product_Page(),
     );
   }
 }
