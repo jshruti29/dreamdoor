@@ -30,8 +30,11 @@ class _google_mapState extends State<google_map> {
         body: GoogleMap(
       onMapCreated: _onMapCreated,
       markers: _markers,
-      initialCameraPosition:
-          CameraPosition(target: LatLng(27.5614547, 78.6644839), zoom: 100),
+      initialCameraPosition: CameraPosition(
+          target: LatLng(27.5614547, 78.6644839),
+          zoom: 19.151926040649414,
+          bearing: 192.8334901395799,
+          tilt: 59.151926040649414),
     ));
   }
 }
