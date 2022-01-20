@@ -7,7 +7,6 @@ import 'package:alecado/Customer/UI/your_orders.dart';
 import 'package:alecado/geo_location.dart';
 import 'package:alecado/map.dart';
 import 'package:flutter/material.dart';
-
 import 'Vendor/LandingPagesVendor/one_vendor_landing_page.dart';
 
 void main() {
