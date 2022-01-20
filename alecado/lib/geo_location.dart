@@ -14,19 +14,11 @@ class _google_mapState extends State<google_map> {
   Set<Marker> _markers = {};
   void _onMapCreated(GoogleMapController controller) {
     setState(() async {
-      Position position = await _getGeoLocationPosition();
-      double lat = position.latitude;
-      double lon = position.longitude;
       _markers.add(Marker(
         markerId: MarkerId('id-1'),
         position: LatLng(lat, lon),
       ));
     });
-  }
-
-  initState() async {
-    await _onMapCreated;
-    await _getGeoLocationPosition;
   }
 
   @override
@@ -115,6 +107,7 @@ class _geolocState extends State<geoloc> {
               location =
                   'Lat: ${position.latitude} , Long: ${position.longitude}';
               GetAddressFromLatLong(position);
+              getcoordinates();
             },
             style: ButtonStyle(
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -182,4 +175,12 @@ Future<Position> _getGeoLocationPosition() async {
   // continue accessing the position of the device.
   return await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.high);
+}
+
+late double lat;
+late double lon;
+Future getcoordinates() async {
+  Position position = await _getGeoLocationPosition();
+  lat = position.latitude;
+  lon = position.longitude;
 }
