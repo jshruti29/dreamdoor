@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class google_map extends StatefulWidget {
-  const google_map({Key? key}) : super(key: key);
+class google_map_backup extends StatefulWidget {
+  const google_map_backup({Key? key}) : super(key: key);
 
   @override
-  _google_mapState createState() => _google_mapState();
+  _google_map_backupState createState() => _google_map_backupState();
 }
 
-class _google_mapState extends State<google_map> {
+class _google_map_backupState extends State<google_map_backup> {
   Set<Marker> _markers = {};
   void _onMapCreated(GoogleMapController controller) {
-    setState(() {
-      _markers.add(Marker(
-          markerId: MarkerId('id-1'),
-          position: LatLng(27.5614547, 78.6644839)));
-    });
+    setState(
+      () {
+        _markers.add(Marker(
+            markerId: MarkerId('id-1'),
+            position: LatLng(27.5614547, 78.6644839)));
+      },
+    );
   }
 
   @override
@@ -24,11 +26,8 @@ class _google_mapState extends State<google_map> {
         body: GoogleMap(
       onMapCreated: _onMapCreated,
       markers: _markers,
-      initialCameraPosition: CameraPosition(
-          target: LatLng(27.5614547, 78.6644839),
-          zoom: 19.151926040649414,
-          bearing: 192.8334901395799,
-          tilt: 59.151926040649414),
+      initialCameraPosition:
+          CameraPosition(target: LatLng(27.5614547, 78.6644839), zoom: 100),
     ));
   }
 }
