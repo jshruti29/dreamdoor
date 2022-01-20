@@ -11,7 +11,7 @@ class geoloc extends StatefulWidget {
 
 class _geolocState extends State<geoloc> {
   String location = 'Null, Press Button';
-  String Address = 'search';
+  String Address = '';
 
   Future<Position> _getGeoLocationPosition() async {
     bool serviceEnabled;
@@ -54,50 +54,88 @@ class _geolocState extends State<geoloc> {
     print(placemarks);
     Placemark place = placemarks[0];
     Address =
-        '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
+        '${place.street}, ${place.subLocality}, ${place.locality}, \n ${place.postalCode}, ${place.country}';
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Coordinates Points',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(right: 200.0),
+          child: Text(
+            'Your Location',
+            style: TextStyle(
+              fontFamily: 'Times New Roman',
+              fontSize: 10,
+              fontWeight: FontWeight.bold,
+              color: Colors.black54,
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              location,
-              style: TextStyle(color: Colors.black, fontSize: 16),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              'ADDRESS',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text('${Address}'),
-            ElevatedButton(
-                onPressed: () async {
-                  Position position = await _getGeoLocationPosition();
-                  location =
-                      'Lat: ${position.latitude} , Long: ${position.longitude}';
-                  GetAddressFromLatLong(position);
-                },
-                child: Text('Get Location'))
-          ],
+          ),
         ),
-      ),
+        SizedBox(
+          height: 10,
+        ),
+        Row(children: [
+          Image.network(
+            "https://user-images.githubusercontent.com/78641804/147932851-a504c2ef-a1d9-4835-acbb-d6eace512f3f.png",
+            height: 40,
+            width: 40,
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          Text(
+            '${Address}',
+            style: TextStyle(
+              fontFamily: 'Times New Roman',
+              fontSize: 10,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          )
+        ]),
+        SizedBox(
+          height: 20,
+        ),
+        ElevatedButton(
+            onPressed: () async {
+              Position position = await _getGeoLocationPosition();
+              location =
+                  'Lat: ${position.latitude} , Long: ${position.longitude}';
+              GetAddressFromLatLong(position);
+            },
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                  side: BorderSide(
+                    color: Color(0xff79BE79),
+                  ),
+                ),
+              ),
+              backgroundColor: MaterialStateProperty.all(Color(0xff79BE79)),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  right: 110, left: 110, top: 20, bottom: 20),
+              child: Column(
+                children: [
+                  Text(
+                    'Set Location',
+                    style: TextStyle(
+                      fontFamily: 'Times New Roman',
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  )
+                ],
+              ),
+            ))
+      ],
     );
   }
 }
