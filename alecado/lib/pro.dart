@@ -35,8 +35,9 @@ class _pro_locState extends State<pro_loc> {
         _controller.animateCamera(
           CameraUpdate.newCameraPosition(
             CameraPosition(
-                target: LatLng(l.latitude as double, l.longitude as double),
-                zoom: 15),
+              target: LatLng(l.latitude as double, l.longitude as double),
+              zoom: 15,
+            ),
           ),
         );
       },
@@ -46,70 +47,111 @@ class _pro_locState extends State<pro_loc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/icon/location.png'), fit: BoxFit.cover),
-        ),
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: SafeArea(
-          child: Container(
-            color: Colors.blueGrey.withOpacity(.8),
-            child: Center(
-              child: Column(
-                children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height / 2.5,
-                    width: MediaQuery.of(context).size.width,
-                    child: GoogleMap(
-                      initialCameraPosition: CameraPosition(
-                          target: _initialcameraposition, zoom: 15),
-                      mapType: MapType.normal,
-                      onMapCreated: _onMapCreated,
-                      myLocationEnabled: true,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 3,
-                  ),
-                  if (_dateTime != null)
-                    Text(
-                      "Date/Time: $_dateTime",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                      ),
-                    ),
-                  SizedBox(
-                    height: 3,
-                  ),
-                  if (_currentPosition != null)
-                    Text(
-                      "Latitude: ${_currentPosition.latitude}, Longitude: ${_currentPosition.longitude}",
-                      style: TextStyle(
-                          fontSize: 22,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  SizedBox(
-                    height: 3,
-                  ),
-                  if (_address != null)
-                    Text(
-                      "Address: $_address",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                      ),
-                    ),
-                  SizedBox(
-                    height: 3,
-                  ),
-                ],
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Container(
+              //  height: MediaQuery.of(context).size.height / 1,
+              width: MediaQuery.of(context).size.width,
+              child: GoogleMap(
+                initialCameraPosition:
+                    CameraPosition(target: _initialcameraposition, zoom: 15),
+                mapType: MapType.normal,
+                onMapCreated: _onMapCreated,
+                myLocationEnabled: true,
               ),
             ),
-          ),
+            Positioned(
+              bottom: 20,
+              left: 10,
+              right: 20,
+              child: Container(
+                height: MediaQuery.of(context).size.height / 4,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    Spacer(),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(children: [
+                          Image.network(
+                            "https://user-images.githubusercontent.com/78641804/147932851-a504c2ef-a1d9-4835-acbb-d6eace512f3f.png",
+                            height: 40,
+                            width: 60,
+                          ),
+                          Text(
+                            'Your Location',
+                            style: TextStyle(
+                              fontFamily: 'Times New Roman',
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ]),
+                        if (_address != null)
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10, left: 40, right: 30),
+                            child: Text(
+                              "Address: $_address",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                                fontFamily: 'Times New Roman',
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        ElevatedButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  side: BorderSide(
+                                    color: Color(0xff79BE79),
+                                  ),
+                                ),
+                              ),
+                              backgroundColor:
+                                  MaterialStateProperty.all(Color(0xff79BE79)),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  right: 110, left: 110, top: 20, bottom: 20),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Set Location',
+                                    style: TextStyle(
+                                      fontFamily: 'Times New Roman',
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
