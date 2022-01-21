@@ -1,6 +1,8 @@
 import 'package:alecado/Vendor/UI/sucessfull.dart';
 import 'package:flutter/material.dart';
 
+import '../../pro.dart';
+
 class loc extends StatefulWidget {
   const loc({Key? key}) : super(key: key);
 
@@ -109,7 +111,12 @@ class _locState extends State<loc> {
                       height: 20,
                     ),
                     ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => pro_loc()),
+                          );
+                        },
                         style: ButtonStyle(
                             shape: MaterialStateProperty.all<
                                     RoundedRectangleBorder>(
