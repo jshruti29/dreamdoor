@@ -2,15 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
-class Search_Page extends StatefulWidget {
-  const Search_Page({Key? key}) : super(key: key);
+class Search extends StatefulWidget {
+  const Search({Key? key}) : super(key: key);
 
   @override
-  _Search_PageState createState() => _Search_PageState();
+  _SearchState createState() => _SearchState();
 }
 
 // ignore: camel_case_types
-class _Search_PageState extends State<Search_Page> {
+class _SearchState extends State<Search> {
   TextEditingController searchController = TextEditingController();
 
   @override
@@ -64,7 +64,7 @@ class _Search_PageState extends State<Search_Page> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset('assets/icon/img.png',
+                          Image.asset('assets/icon/filter.png',
                               color: Colors.white, height: 20, width: 22),
                           SizedBox(
                             width: 10,
@@ -83,8 +83,13 @@ class _Search_PageState extends State<Search_Page> {
               FloatingActionButton(
                 onPressed: () {},
                 backgroundColor: Color(0xFF77DD77),
-                child: const Icon(
-                  Icons.close,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Icon(
+                    Icons.close,
+                  ),
                 ),
               ),
               const SizedBox(

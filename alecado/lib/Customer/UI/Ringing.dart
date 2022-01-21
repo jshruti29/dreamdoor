@@ -61,7 +61,9 @@ class _callingsState extends State<callings> {
                   width: 20,
                 ),
                 FloatingActionButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   backgroundColor: Colors.red,
                   child: const Icon(
                     Icons.close,

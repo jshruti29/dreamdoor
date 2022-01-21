@@ -38,10 +38,7 @@ class _EditPaymentsState extends State<VoucherPromo> {
                       ]),
                     ),
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => Payments()),
-                      // );
+                      Navigator.pop(context);
                     },
                   ),
                 ),
@@ -148,7 +145,7 @@ class _EditPaymentsState extends State<VoucherPromo> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Special Deal For \nFEBRUATY",
+                            "Special Deal For \nFEBRUARY",
                             style: TextStyle(fontSize: 20),
                           ),
                           SizedBox(

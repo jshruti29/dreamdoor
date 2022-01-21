@@ -20,6 +20,6 @@ class MyAppu extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: pro_loc());
+    return MaterialApp(home: One_Vendor_LandingPage());
   }
 }

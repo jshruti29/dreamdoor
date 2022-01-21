@@ -1,17 +1,18 @@
+import 'package:alecado/Customer/UI/Ringing.dart';
 import 'package:alecado/user_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
-class Chat_Page extends StatefulWidget {
-  const Chat_Page({Key? key}) : super(key: key);
+class Chat extends StatefulWidget {
+  const Chat({Key? key}) : super(key: key);
 
   @override
-  _Chat_PageState createState() => _Chat_PageState();
+  _ChatState createState() => _ChatState();
 }
 
 // ignore: camel_case_types
-class _Chat_PageState extends State<Chat_Page> {
+class _ChatState extends State<Chat> {
   bool isDark = true;
   bool hasInternet = true;
   final message = TextEditingController();
@@ -148,7 +149,9 @@ class _Chat_PageState extends State<Chat_Page> {
           child: Row(
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 style: ButtonStyle(
                     elevation: MaterialStateProperty.all(5),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -168,7 +171,7 @@ class _Chat_PageState extends State<Chat_Page> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text(
-                    "Trival Hotel",
+                    "Trident Hotel",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 17,
@@ -180,16 +183,17 @@ class _Chat_PageState extends State<Chat_Page> {
           ),
         ),
         actions: <Widget>[
-          Row(
-            children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.call,
-                    color: Colors.black87,
-                  )),
-            ],
-          ),
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const callings()),
+                );
+              },
+              icon: const Icon(
+                Icons.call,
+                color: Colors.black87,
+              )),
         ],
       ),
       // ignore: avoid_unnecessary_containers

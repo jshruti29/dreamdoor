@@ -2,6 +2,7 @@
 // import 'package:ecommerce/Static/toast.dart';
 // import 'package:ecommerce/Static/user_type.dart';
 // import 'package:email_auth/email_auth.dart';
+import 'package:alecado/Customer/UI/home_module.dart';
 import 'package:alecado/Vendor/UI/Profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
@@ -257,10 +258,17 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                   onPressed: () async {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const upload()),
-                    );
+                    isCustomerSelected == false
+                        ? Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const upload()),
+                          )
+                        : Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const home_module()),
+                          );
                     // setState(() {
                     //   usernameIsEmpty =
                     //       usernameController.text.isEmpty ? true : false;

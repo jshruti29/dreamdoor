@@ -6,6 +6,8 @@ import 'package:geocoder/geocoder.dart';
 import 'package:intl/intl.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import 'Vendor/UI/sucessfull.dart';
+
 class pro_loc extends StatefulWidget {
   @override
   _pro_locState createState() => _pro_locState();
@@ -13,7 +15,7 @@ class pro_loc extends StatefulWidget {
 
 class _pro_locState extends State<pro_loc> {
   late LocationData _currentPosition;
-  late String _address, _dateTime;
+  String _address = "";
   late GoogleMapController mapController;
   late Marker marker;
   Location location = Location();
@@ -65,17 +67,16 @@ class _pro_locState extends State<pro_loc> {
               bottom: 20,
               left: 10,
               right: 20,
-              child: Container(
-                height: MediaQuery.of(context).size.height / 4,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  children: [
-                    Spacer(),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+              child: Column(
+                children: [
+                  Container(
+                    //height: MediaQuery.of(context).size.height / 4,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      //mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
                           height: 10,
@@ -86,11 +87,11 @@ class _pro_locState extends State<pro_loc> {
                             height: 40,
                             width: 60,
                           ),
-                          Text(
+                          const Text(
                             'Your Location',
                             style: TextStyle(
                               fontFamily: 'Times New Roman',
-                              fontSize: 10,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: Colors.black54,
                             ),
@@ -98,57 +99,55 @@ class _pro_locState extends State<pro_loc> {
                         ]),
                         if (_address != null)
                           Padding(
-                            padding: const EdgeInsets.only(
-                                top: 10, left: 40, right: 30),
+                            padding: const EdgeInsets.only(left: 40, right: 30),
                             child: Text(
-                              "Address: $_address",
+                              "Address: \n$_address",
                               style: TextStyle(
-                                fontSize: 12,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w400,
                                 fontFamily: 'Times New Roman',
                                 color: Colors.black,
                               ),
                             ),
                           ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        ElevatedButton(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0),
-                                  side: BorderSide(
-                                    color: Color(0xff79BE79),
-                                  ),
-                                ),
-                              ),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Color(0xff79BE79)),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  right: 110, left: 110, top: 20, bottom: 20),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'Set Location',
-                                    style: TextStyle(
-                                      fontFamily: 'Times New Roman',
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                  SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const congo()),
+                      );
+                    },
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: BorderSide(
+                            color: Color(0xff79BE79),
+                          ),
+                        ),
+                      ),
+                      backgroundColor:
+                          MaterialStateProperty.all(Color(0xff79BE79)),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.only(
+                          right: 90, left: 90, top: 18, bottom: 18),
+                      child: const Text(
+                        'Set Location',
+                        style: TextStyle(
+                          fontFamily: 'Times New Roman',
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -187,8 +186,6 @@ class _pro_locState extends State<pro_loc> {
         _initialcameraposition = LatLng(_currentPosition.latitude as double,
             _currentPosition.longitude as double);
 
-        DateTime now = DateTime.now();
-        _dateTime = DateFormat('EEE d MMM kk:mm:ss ').format(now);
         _getAddress(_currentPosition.latitude as double,
                 _currentPosition.longitude as double)
             .then((value) {
@@ -201,7 +198,7 @@ class _pro_locState extends State<pro_loc> {
   }
 
   Future<List<Address>> _getAddress(double lat, double lang) async {
-    final coordinates = new Coordinates(lat, lang);
+    final coordinates = Coordinates(lat, lang);
     List<Address> add =
         await Geocoder.local.findAddressesFromCoordinates(coordinates);
     return add;

@@ -1,8 +1,10 @@
+import 'package:alecado/Customer/UI/payment.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import '../count_bloc.dart';
+import 'chat_page.dart';
 
 // ignore: camel_case_types
 class Product_Page extends StatefulWidget {
@@ -40,7 +42,7 @@ class _Product_PageState extends State<Product_Page> {
                       color: Colors.black,
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, "/home_page");
+                      Navigator.pop(context);
                     },
                   )),
               trailing: Container(
@@ -97,7 +99,11 @@ class _Product_PageState extends State<Product_Page> {
                                   color: Colors.white,
                                 ),
                                 onPressed: () {
-                                  Navigator.pushNamed(context, "/chat_page");
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const Chat()),
+                                  );
                                 },
                               )),
                         ),
@@ -115,7 +121,7 @@ class _Product_PageState extends State<Product_Page> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Tridal Hotel",
+                                    "Trident Hotel",
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 25,
@@ -565,7 +571,12 @@ class _Product_PageState extends State<Product_Page> {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Payments()),
+                );
+              },
               child: Container(
                 height: 40,
                 width: 200,

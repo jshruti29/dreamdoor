@@ -1,16 +1,19 @@
+import 'package:alecado/Customer/UI/notification.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'your_orders.dart';
+
 // ignore: camel_case_types
-class Setting_Page extends StatefulWidget {
-  const Setting_Page({Key? key}) : super(key: key);
+class customer_settings extends StatefulWidget {
+  const customer_settings({Key? key}) : super(key: key);
 
   @override
-  _Setting_PageState createState() => _Setting_PageState();
+  _customer_settingsState createState() => _customer_settingsState();
 }
 
 // ignore: camel_case_types
-class _Setting_PageState extends State<Setting_Page> {
+class _customer_settingsState extends State<customer_settings> {
   // ignore: non_constant_identifier_names
   Widget Tile(IconData icons, String title, String pageToRoute) {
     return Container(
@@ -144,9 +147,25 @@ class _Setting_PageState extends State<Setting_Page> {
                 ),
               ),
               Tile(Icons.account_circle, "Account", ""),
-              Tile(Icons.shopping_cart, "Orders", ""),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const YourOrders()),
+                    );
+                  },
+                  child: Tile(Icons.shopping_cart, "Orders", "")),
               Tile(Icons.settings_display, "Appearance", ""),
-              Tile(Icons.message, "Notification", ""),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const notifications()),
+                    );
+                  },
+                  child: Tile(Icons.message, "Notification", "")),
               Tile(Icons.lock, "Privacy", ""),
               Tile(Icons.data_usage, "Data Usage", ""),
               Tile(Icons.help, "Help", ""),

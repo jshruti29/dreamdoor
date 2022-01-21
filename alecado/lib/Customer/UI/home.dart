@@ -1,4 +1,8 @@
 // ignore: camel_case_types
+import 'package:alecado/Customer/UI/product.dart';
+import 'package:alecado/Customer/UI/search_page.dart';
+import 'package:alecado/Customer/UI/setting_page.dart';
+import 'package:alecado/Customer/UI/voucher_promo.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 //import 'package:ecommerce/Logic/user_data.dart';
 import 'package:flutter/cupertino.dart';
@@ -78,7 +82,7 @@ class _Home_PageState extends State<Home_Page> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "Tridal Hotel",
+                        "Trident Hotel",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1,
@@ -133,7 +137,11 @@ class _Home_PageState extends State<Home_Page> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, "/product_page");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Product_Page()),
+                          );
                         },
                         child: Container(
                             height: 30,
@@ -203,7 +211,10 @@ class _Home_PageState extends State<Home_Page> {
               color: Color(0xFF77DD77),
             ),
             onPressed: () {
-              Navigator.pushNamed(context, "/search_page");
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Search()),
+              );
             },
           ),
           IconButton(
@@ -212,7 +223,11 @@ class _Home_PageState extends State<Home_Page> {
               color: Colors.black,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, "/setting_page");
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const customer_settings()),
+              );
             },
           ),
         ],
@@ -276,40 +291,50 @@ class _Home_PageState extends State<Home_Page> {
               const SizedBox(
                 height: 10,
               ),
-              Container(
-                height: 120,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF77DD77),
-                  borderRadius: BorderRadius.circular(25.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Row(
-                    children: [
-                      Image.asset("assets/images/image16.png"),
-                      const SizedBox(
-                        width: 40,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            "25% Discount",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const VoucherPromo()),
+                  );
+                },
+                child: Container(
+                  height: 120,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF77DD77),
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: Row(
+                      children: [
+                        Image.asset("assets/images/image16.png"),
+                        const SizedBox(
+                          width: 40,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              "25% Discount",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                              ),
                             ),
-                          ),
-                          Text(
-                            "Book venue from our \napp and get discount",
-                            style: TextStyle(color: Colors.white, fontSize: 15),
-                          ),
-                        ],
-                      ),
-                    ],
+                            Text(
+                              "Book venue from our \napp and get discount",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

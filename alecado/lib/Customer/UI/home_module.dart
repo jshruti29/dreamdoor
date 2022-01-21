@@ -1,6 +1,11 @@
+import 'package:alecado/Customer/UI/customer_messages.dart';
+import 'package:alecado/Customer/UI/customer_profile.dart';
+import 'package:alecado/Customer/UI/product.dart';
 import 'package:flutter/material.dart';
 
+import 'chat_page.dart';
 import 'home.dart';
+import 'your_orders.dart';
 
 class home_module extends StatelessWidget {
   const home_module({Key? key}) : super(key: key);
@@ -27,7 +32,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int currentIndex = 0;
 
-  final screens = [Home_Page()];
+  final screens = [
+    Home_Page(),
+    customer_profile(),
+    YourOrders(),
+    Customer_Messages()
+  ];
 
   //List of screens
 

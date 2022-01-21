@@ -1,3 +1,4 @@
+import 'package:alecado/Customer/UI/Finish_order.dart';
 import 'package:flutter/material.dart';
 
 import 'edit_payments.dart';
@@ -263,26 +264,35 @@ class _PaymentsState extends State<Payments> {
                         ],
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.only(
-                          left: 8, top: 10, right: 8, bottom: 0),
-                      height: 70,
-                      width: 380,
-                      child: Card(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        //elevation: 10,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Place My Order",
-                              style:
-                                  TextStyle(fontSize: 18, color: Colors.green),
-                            )
-                          ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const order()),
+                        );
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(
+                            left: 8, top: 10, right: 8, bottom: 0),
+                        height: 70,
+                        width: 380,
+                        child: Card(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          //elevation: 10,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Place My Order",
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.green),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),

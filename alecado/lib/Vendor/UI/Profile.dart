@@ -6,6 +6,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../pro.dart';
+
 class upload extends StatefulWidget {
   const upload({Key? key}) : super(key: key);
 
@@ -163,7 +165,7 @@ class _uploadState extends State<upload> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const loc()),
+                    MaterialPageRoute(builder: (context) => pro_loc()),
                   );
                 },
                 child: Padding(
