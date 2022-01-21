@@ -6,12 +6,12 @@ import 'package:geocoder/geocoder.dart';
 import 'package:intl/intl.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MyLocation extends StatefulWidget {
+class pro_loc extends StatefulWidget {
   @override
-  _MyLocationState createState() => _MyLocationState();
+  _pro_locState createState() => _pro_locState();
 }
 
-class _MyLocationState extends State<MyLocation> {
+class _pro_locState extends State<pro_loc> {
   late LocationData _currentPosition;
   late String _address, _dateTime;
   late GoogleMapController mapController;
@@ -49,7 +49,7 @@ class _MyLocationState extends State<MyLocation> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/images/bg.jpg'), fit: BoxFit.cover),
+              image: AssetImage('assets/icon/location.png'), fit: BoxFit.cover),
         ),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,

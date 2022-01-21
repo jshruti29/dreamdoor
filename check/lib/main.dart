@@ -1,5 +1,6 @@
 //@dart=2.9
 import 'package:check/map.dart';
+import 'package:check/pro.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyLocation(),
+      home: pro_loc(),
     );
   }
 }
